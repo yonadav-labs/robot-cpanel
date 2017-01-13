@@ -144,4 +144,3 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = STATIC_URL + "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, *MEDIA_URL.strip("/").split("/"))
-print MEDIA_ROOT, '@@@@@@@'
