@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Letsky-Leaflet</title>
+        <link rel="stylesheet" href='{%static "leaflet/leaflet.css"%}' />
+
+        {% block extra_css %}
+        {% endblock %}
+    </head>
+    <body>
+        <section id="content">
+            {% block content %}
+            {% endblock %}
+        </section>
+        <script src='{%static "leaflet/leaflet.js"%}'></script>
+        {% block extra_js %}
+        {% endblock %}    
+    </body>
+</html>

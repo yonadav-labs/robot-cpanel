@@ -1,0 +1,578 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin-bottom: 20em;
+  overflow-x: hidden !important;
+}
+
+.container {
+  min-height:100%;
+  position:relative;
+  max-width: 1170px;
+}
+
+/* ********************** Navigation ************************ */
+
+.navbar {
+  border-color: transparent;
+  border-radius: 0px;
+  background-color: #323332;
+  margin-bottom: 20px;
+}
+
+.navbar-brand img {
+  margin-top: -5px;
+  margin-left: 1px;
+}
+
+.navbar-nav {
+  cursor: pointer;
+}
+
+.navbar-inverse .navbar-nav li a{
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1.2em;
+  margin-top: 2px;
+  margin-left: 20px;
+}
+
+.navbar-inverse .navbar-right  li a {
+  margin-top: 0px;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+  /*color: #bec0c0;*/
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.navbar-right li a {
+  text-decoration: none;
+}
+
+/* ********************** HOMEPAGE: Hero Image ************************ */
+
+.jumbotron-hero .container {
+  position: relative;
+  top:100px;
+}
+
+.jumbotron-hero {
+  height: 650px;
+  width: 100%;
+  margin-top: -60px;
+  border: none;
+  background-image: url(../img/owl.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 650px;
+  width: 100%;
+  margin-top: -49px;
+}
+
+:root {
+  font-size: 30px;
+}
+
+@media(min-width: 800px){
+  :root {
+    font-size: 36px;
+  }
+}
+
+.jumbotron-hero h1 {
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 300px;
+  -webkit-filter: drop-shadow(0px 8px 10px black);
+  filter: drop-shadow(0px 8px 10px black);
+  font-family: 'Noto Sans' sans-serif;
+}
+
+.jumbotron-hero h2 {
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  -webkit-filter: drop-shadow(0px 8px 10px black);
+  filter: drop-shadow(0px 8px 10px black);
+  font-family: 'Noto Sans' sans-serif;
+}
+
+/*********************** HOMEPAGE: Panel Content ***********************/
+
+.panel-default {
+  margin-top: -28px;
+  margin-bottom: 5px;
+  padding-bottom: 50px;
+}
+
+.panel-body h2{
+  font-family: 'Noto Sans' sans-serif;
+  margin-left: 5px;
+  font-size: 2em;
+}
+
+.panel-body p {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1.1em;
+}
+
+.panel-body .btn.btn-default {
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #8cc051;
+  color: #fff;
+  border-color: #8cc051;
+  border-radius: 4px;
+  padding-top: 8px;
+  margin-top: 10px;
+  height: 40px;
+  width: 120px;
+}
+
+.panel-body .btn.btn-default:hover {
+  display: inline-block;
+  background-color: #6da330;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+/* ********************** Welcome Jumbotron ************************ */
+
+.jumbotron-welcome {
+  margin-top: 20px;
+  margin-bottom: 35px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: #E1F5FE;
+  border: 1px solid rgba(179, 229, 252, 0.5);
+}
+
+.jumbotron-welcome p {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1em;
+  margin-top: 5px;
+  margin-left: -15px;
+  padding-top: 8px;
+  padding-bottom: 0px;
+  padding-left: 10px;
+}
+
+.jumbotron-welcome strong {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1em;
+  margin-top: 8px;
+  margin-bottom: 5px;
+  margin-left: -15px;
+  padding-top: 25px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+}
+
+.jumbotron-welcome ul {
+  padding-left: 43px;
+}
+
+.jumbotron-welcome li {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1em;
+  margin-left: -20px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-left: 5px;
+  line-height: 1em;
+}
+
+/****************** DESKTOP: Horizontal Blue Buttons ******************/
+
+.btn {
+  margin-bottom: 5px;
+}
+
+.btn .fa-plus {
+  margin-right: 5px;
+}
+
+.btn-default {
+  font-family: 'Noto Sans', sans-serif;
+  border-radius: 4px;
+  margin-left: 2px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.btn-default:hover {
+  -webkit-transition: .7s;
+  transition: .7s;
+}
+
+.btn-default:active {
+  -webkit-transform: translateY(1px);
+  transform: translateY(1px);
+}
+
+/****************** MOBILE: Vertical Blue Buttons ******************/
+
+.btn-group-vertical {
+  border-radius: 4px;
+  margin-top: 0px;
+  margin-bottom: 25px;
+  display: block;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+}
+
+.btn-group-vertical .btn:first-child:not(:last-child) {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.btn-group-vertical .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.btn-group-vertical .btn:not(:first-child):last-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.btn-group-vertical .btn-group .btn-group {
+  margin-top: -1px;
+  margin-left: 0;
+}
+/*
+.btn-group-vertical .btn-default {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1.1em;
+  border: 1px solid #167bb7;
+  height: 37px;
+  width: 200px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  text-align: left;
+  background-color: #278ac4;
+  color: #fff;
+  -webkit-transition: .5s;
+  transition: .5s;
+} */
+
+.btn-group-vertical .btn-default {
+  font-family: 'Noto Sans', sans-serif;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  text-align: left;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.btn-group-vertical .btn-default:active {
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+}
+
+/*
+.btn-group-vertical .btn-default:hover {
+  background-color: #167bb7;
+}*/
+
+/* ********************** Campaign Dashboard ************************ */
+
+.hub {
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+.well-green {
+  border-top: 7px solid #7EBC58;
+  border-right: 1px solid rgba(239, 239, 239, 0.4);
+  border-bottom: 2px solid rgba(239, 239, 239, 0.9);
+  border-left: 1px solid rgba(239, 239, 239, 0.4);
+  border-radius: 4px;
+}
+
+.well-orange {
+  border-top: 7px solid #FB9D3B;
+  border-right: 1px solid rgba(239, 239, 239, 0.4);
+  border-bottom: 2px solid rgba(239, 239, 239, 0.9);
+  border-left: 1px solid rgba(239, 239, 239, 0.4);
+  border-radius: 4px;
+}
+
+.well-peach {
+  border-top: 7px solid #F26648;
+  border-right: 1px solid rgba(239, 239, 239, 0.4);
+  border-bottom: 2px solid rgba(239, 239, 239, 0.9);
+  border-left: 1px solid rgba(239, 239, 239, 0.4);
+  border-radius: 4px;
+}
+
+.well-yellow {
+  border-top: 7px solid #FFD43B;
+  border-right: 1px solid rgba(239, 239, 239, 0.4);
+  border-bottom: 2px solid rgba(239, 239, 239, 0.9);
+  border-left: 1px solid rgba(239, 239, 239, 0.4);
+  border-radius: 4px;
+}
+
+
+.well-blue {
+  border-top: 7px solid #278ac4;
+  border-right: 1px solid rgba(239, 239, 239, 0.4);
+  border-bottom: 2px solid rgba(239, 239, 239, 0.9);
+  border-left: 1px solid rgba(239, 239, 239, 0.4);
+  border-radius: 4px;
+}
+
+.well-red {
+  border-top: 7px solid #d63932;
+  border-right: 1px solid rgba(239, 239, 239, 0.4);
+  border-bottom: 2px solid rgba(239, 239, 239, 0.9);
+  border-left: 1px solid rgba(239, 239, 239, 0.4);
+  border-radius: 4px;
+}
+
+/* ********************** Main Dashboard ************************ */
+
+.well {
+  background-color: #f7f7f7;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  width: 100%;
+}
+
+.well-company {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #d2d2d2;
+  border-radius: 6px;
+  overflow: visible;
+}
+
+.well-company i.fa-group {
+  margin-top: 10px;
+  margin-bottom: -10px;
+  padding-left: 0px;
+  padding-top: 5px;
+  font-size: 1.5em;
+  color: #bec0c0;
+
+}
+.well-company p {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1em;
+  padding-top: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  -webkit-margin-before: 10px;
+  overflow: hidden;
+}
+
+.well .btn-group {
+  padding-top: 4px;
+  padding-bottom: 0px;
+}
+
+.well .btn-default {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1em;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  -webkit-margin-before: 5px;
+  border-radius: 4px;
+  display: block;
+}
+
+.btn-default .caret {
+  margin-left: 5px;
+}
+
+/* ********************** Footer ************************ */
+
+.footer {
+  position: absolute;
+  display:inline-block;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  clear: both;
+  background-color: #323332;
+}
+
+.footer p {
+  margin-top: 15px;
+  margin-left: 10px;
+  padding-top: 10px;
+  font-family: 'Noto Sans' sans-serif;
+  color: #686868;
+  text-align: center;
+}
+
+/* ********************** OWL HERO: Media queries  ************************ */
+
+/********* Tablet *********/
+
+@media only screen and (max-width: 736px) {
+  .jumbotron-hero .container {
+    position: relative;
+    top:100px;
+  }
+
+  .jumbotron-hero {
+    height: 500px;
+    width: 100%;
+    margin-top: -30px;
+    border: none;
+    background-image: url(../img/owl.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 500px;
+    width: 100%;
+    margin-top: -30px;
+  }
+
+  :root {
+    font-size: 30px;
+  }
+
+  @media(min-width: 800px){
+    :root {
+      font-size: 36px;
+    }
+  }
+
+  .jumbotron-hero h1 {
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 160px;
+    margin-left: -7px;
+    -webkit-filter: drop-shadow(0px 8px 10px black);
+    filter: drop-shadow(0px 8px 10px black);
+    font-family: 'Noto Sans' sans-serif;
+  }
+
+  .jumbotron-hero h2 {
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+    -webkit-filter: drop-shadow(0px 8px 10px black);
+    filter: drop-shadow(0px 8px 10px black);
+    font-family: 'Noto Sans' sans-serif;
+  }
+}
+
+/********* Mobile *********/
+
+@media only screen and (max-width: 667px) {
+  .jumbotron-hero .container {
+    position: relative;
+    top:100px;
+  }
+
+  .jumbotron-hero {
+    height: 500px;
+    width: 100%;
+    margin-top: -90px;
+    border: none;
+    background-image: url(../img/owl2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 500px;
+    width: 100%;
+    margin-top: -30px;
+  }
+
+  :root {
+    font-size: 24px;
+  }
+
+@media(min-width: 800px){
+    :root {
+      font-size: 20px;
+    }
+  }
+
+  .jumbotron-hero h1 {
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 130px;
+    margin-left: -7px;
+    -webkit-filter: drop-shadow(0px 8px 10px black);
+    filter: drop-shadow(0px 8px 10px black);
+    font-family: 'Noto Sans' sans-serif;
+  }
+
+  .jumbotron-hero h2 {
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+    -webkit-filter: drop-shadow(0px 8px 10px black);
+    filter: drop-shadow(0px 8px 10px black);
+    font-family: 'Noto Sans' sans-serif;
+  }
+}
+
+/***** Extra Fix *****/
+
+.signup .btn  {
+  display: inline-block;
+  margin-bottom: 45px; // For input.btn
+  font-weight: @btn-font-weight;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @btn-border-radius-base);
+  .user-select(none);
+}
+
+h1.h1-hub {
+    font-size: 1.8em;
+}
+
+h2.h2-hub {
+    font-size: 1.4em;
+}
+
+h3.h3-hub {
+    font-size: 1.4em;
+}
