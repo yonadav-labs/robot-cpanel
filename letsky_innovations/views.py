@@ -45,3 +45,25 @@ def get_pattern(request, device_id):
     if device:
         return HttpResponse(device.pattern)
     return HttpResponse('')
+
+
+def send_geoinfo(request, device_id):
+    """
+    {
+        type: "permitted" / "excluded" / "trace",
+        gps: "51.3265,-1.2356@51.3265,-1.2356@51.3265,-1.2356@51.3265,-1.2356",
+    }
+    """
+    if request.method == "POST":
+        type_ = request.data.get('type')
+        gps = request.data.get('gps')
+
+        if type_ == "permitted":
+            pass
+        elif type_ == "excluded":
+            pass
+        else:
+            pass
+            
+        return HttpResponse('succes')
+    return HttpResponse('fail')

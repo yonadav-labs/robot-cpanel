@@ -60,6 +60,20 @@ class Firmware(models.Model):
     def __unicode__(self):
         return self.version
 
+TYPE = (
+        ('permitted', 'permitted'),
+        ('excluded', 'excluded'),
+        ('trace', 'trace'),
+    )
+
+class GPSInfo(models.Model):
+    geo_type = models.CharField(max_length=20, choices=TYPE)
+    geo_points = models.TextField()
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.geo_type
+
 
 class MyAccountAdapter(DefaultAccountAdapter):
     def save_user(self, request, user, form):
