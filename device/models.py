@@ -67,12 +67,13 @@ TYPE = (
     )
 
 class GPSInfo(models.Model):
+    device = models.ForeignKey(Device)
     geo_type = models.CharField(max_length=20, choices=TYPE)
     geo_points = models.TextField()
     updated_at = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
-        return self.geo_type
+        return "{}-{}".format(self.device.name, self.geo_type)
 
 
 class MyAccountAdapter(DefaultAccountAdapter):
