@@ -8,7 +8,13 @@ class ScheduleTablularInline(admin.TabularInline):
 
 
 class DeviceAdmin(admin.ModelAdmin):
+    exclude = ('user',)
     inlines = [ScheduleTablularInline]
+
+    def save_model(self, request, obj, form, change):
+        obj.user = request.user
+        obj.save()
+
     class Meta:
         model = Device
 

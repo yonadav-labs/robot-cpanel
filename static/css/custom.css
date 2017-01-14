@@ -1,4 +1,4 @@
-html {
+/*html {
   position: relative;
   min-height: 100%;
 }
@@ -15,13 +15,18 @@ body {
   max-width: 1170px;
 }
 
+
+*/
+#mapid {
+   height: calc(100vh - 120px);
+}
 /* ********************** Navigation ************************ */
 
 .navbar {
   border-color: transparent;
   border-radius: 0px;
   background-color: #323332;
-  margin-bottom: 20px;
+  margin-bottom: 3px;
 }
 
 .navbar-brand img {
