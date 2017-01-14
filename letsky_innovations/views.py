@@ -29,3 +29,10 @@ def get_download_response(path):
     response['Content-Length'] = os.path.getsize( path ) # not FileField instance
     response['Content-Disposition'] = 'attachment; filename=%s/' % smart_str( os.path.basename( path ) )
     return response
+
+
+def get_pattern(request, device_id):
+    device = Device.objects.filter(device_id=device_id).first()
+    if device:
+        return HttpResponse(device.pattern)
+    return HttpResponse('')

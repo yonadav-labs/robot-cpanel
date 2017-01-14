@@ -7,5 +7,6 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name="home"),
-    url(r'^download_firmware', download_firmware, name="download_firmware")
+    url(r'^download_firmware', download_firmware, name="download_firmware"),
+    url(r'^get_pattern/(?P<device_id>[\w]+)$', get_pattern, name="get_pattern"),
 ]
