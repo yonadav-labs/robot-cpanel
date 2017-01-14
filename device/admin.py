@@ -7,8 +7,14 @@ class ScheduleTablularInline(admin.TabularInline):
     fields = ['dow', 'start_time', 'end_time']
 
 
+class GPSTablularInline(admin.TabularInline):
+    model = GPSInfo
+    extra = 0
+    fields = ['geo_type', 'geo_points']
+
+
 class DeviceAdmin(admin.ModelAdmin):
-    inlines = [ScheduleTablularInline]
+    inlines = [ScheduleTablularInline, GPSTablularInline]
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
         if request.user.is_superuser:

@@ -58,12 +58,6 @@ def send_geoinfo(request, device_id):
         type_ = request.data.get('type')
         gps = request.data.get('gps')
 
-        if type_ == "permitted":
-            pass
-        elif type_ == "excluded":
-            pass
-        else:
-            pass
-            
+        GPSInfo.objects.create(device_id=device_id, geo_type=type_, geo_points=gps)
         return HttpResponse('succes')
     return HttpResponse('fail')

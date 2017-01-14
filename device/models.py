@@ -84,21 +84,14 @@ class MyAccountAdapter(DefaultAccountAdapter):
 
         user = super(MyAccountAdapter, self).save_user(request, user, form)
         # grant permission
-        permission = Permission.objects.get(name='Can add device')
-        user.user_permissions.add(permission)
-        permission = Permission.objects.get(name='Can delete device')
-        user.user_permissions.add(permission)
-        permission = Permission.objects.get(name='Can change device')
-        user.user_permissions.add(permission)
-        permission = Permission.objects.get(name='Can add schedule')
-        user.user_permissions.add(permission)
-        permission = Permission.objects.get(name='Can delete schedule')
-        user.user_permissions.add(permission)
-        permission = Permission.objects.get(name='Can change schedule')
-        user.user_permissions.add(permission)
+        permissions = ['Can add device', 'Can delete device', 'Can change device',
+                       'Can add schedule', 'Can delete schedule', 'Can change schedule',
+                       'Can add gps info', 'Can delete gps info', 'Can change gps info']
+        for permission in permissions:
+            permission = Permission.objects.get(name=permission)
+            user.user_permissions.add(permission)
 
         UserProfile.objects.create(user=user, 
                                    address=request.POST.get('address'),
                                    phone=request.POST.get('phone'))
-
         return user
