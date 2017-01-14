@@ -1,6 +1,6 @@
 import os, sys
 import mimetypes
-
+from datetime import datetime
 from wsgiref.util import FileWrapper
 
 from django.utils.encoding import smart_str
@@ -29,6 +29,15 @@ def get_download_response(path):
     response['Content-Length'] = os.path.getsize( path ) # not FileField instance
     response['Content-Disposition'] = 'attachment; filename=%s/' % smart_str( os.path.basename( path ) )
     return response
+
+
+def get_schedule(request, device_id):
+    device = Device.objects.filter(device_id=device_id).first()
+    if device:
+        schedule = Schedule.objects.filter(device=device)
+        schedule = ["{}, {}, {}".format(item.dow, item.start_time.strftime('%H%M'), item.end_time.strftime('%H%M')) for item in schedule]
+        return HttpResponse('@'.join(schedule))
+    return HttpResponse('')
 
 
 def get_pattern(request, device_id):
