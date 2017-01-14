@@ -170,3 +170,5 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'jason.5001001@gmail.com'
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ACCOUNT_ADAPTER = 'device.models.MyAccountAdapter'

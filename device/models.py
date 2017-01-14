@@ -2,6 +2,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
+from allauth.account.adapter import DefaultAccountAdapter
 
 
 class UserProfile(models.Model):
@@ -55,3 +57,11 @@ class Firmware(models.Model):
 
     def __unicode__(self):
         return self.version
+
+
+class MyAccountAdapter(DefaultAccountAdapter):
+    def save_user(self, request, user, form):
+        user.is_staff = True
+        user.first_name = request.POST.get('first_name')
+        user.last_name = request.POST.get('last_name')
+        return super(MyAccountAdapter, self).save_user(request, user, form)
