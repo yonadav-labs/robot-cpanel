@@ -75,7 +75,16 @@ def send_geoinfo(request, device_id):
         gps = json.loads(request.body).get('gps')
         try:
             device = Device.objects.get(device_id=device_id)
-            GPSInfo.objects.create(device=device, geo_type=type_, geo_points=gps)
+            if type_ == "trace":
+                gps = gps.split('@')[-1]
+                gps_trace, created = GPSInfo.objects.get_or_create(device=device, 
+                                                                   geo_type=type_, 
+                                                                   defaults={'geo_points': gps})
+                if not created:
+                    gps_trace.geo_points = gps_trace.geo_points + "@" + gps
+                    gps_trace.save()
+            else:
+                GPSInfo.objects.create(device=device, geo_type=type_, geo_points=gps)
             return HttpResponse('success')
         except Exception, e:
             pass
