@@ -1,3 +1,4 @@
+import json
 import os, sys
 import mimetypes
 from datetime import datetime
@@ -7,11 +8,25 @@ from django.utils.encoding import smart_str
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
 
 from device.models import *
 
 def home(request):
-    return render(request, 'home.html')
+    geo_info = {"permitted": [],
+                "excluded": [],
+                "trace": []}
+
+    if request.user.is_authenticated():
+        for device in Device.objects.filter(user=request.user):
+            for p_info in GPSInfo.objects.filter(device=device):
+                item = p_info.geo_points.split('@')
+
+                geo_info[p_info.geo_type].append({"data":[map(float, ii.split(',')) for ii in item], 
+                                                  "name": device.name,
+                                                  "img": device.img.url})
+
+    return render(request, 'home.html', {'geo_info': geo_info})
 
 
 def download_firmware(request):
@@ -47,6 +62,7 @@ def get_pattern(request, device_id):
     return HttpResponse('')
 
 
+@csrf_exempt
 def send_geoinfo(request, device_id):
     """
     {
@@ -55,9 +71,12 @@ def send_geoinfo(request, device_id):
     }
     """
     if request.method == "POST":
-        type_ = request.data.get('type')
-        gps = request.data.get('gps')
-
-        GPSInfo.objects.create(device_id=device_id, geo_type=type_, geo_points=gps)
-        return HttpResponse('succes')
+        type_ = json.loads(request.body).get('type')
+        gps = json.loads(request.body).get('gps')
+        try:
+            device = Device.objects.get(device_id=device_id)
+            GPSInfo.objects.create(device=device, geo_type=type_, geo_points=gps)
+            return HttpResponse('success')
+        except Exception, e:
+            pass
     return HttpResponse('fail')

@@ -7,7 +7,11 @@
 
 {% block extra_js %}
 <script type="text/javascript">
-    var mymap = L.map('mapid').setView([51.5, -0.09], 11);
+    {% if geo_info.permitted.0 %}
+        var mymap = L.map('mapid').setView({{geo_info.permitted.0.data.0}}, 16);
+    {% else %}
+        var mymap = L.map('mapid').setView([26.37, -80.13], 16);
+    {% endif %}
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZ2V0ZnJlc2hiYWtlZCIsImEiOiJjaXBzbjdoZGUwM3oxZnZtMmltazJ0eHU4In0.B9Vu_0d7ZJlCXfwP5V_s5A', {
         maxZoom: 20,
@@ -15,47 +19,27 @@
         id: 'mapbox.streets'
     }).addTo(mymap);
 
+    {% for p_info in geo_info.permitted %}
+        L.polygon({{ p_info.data }}, {
+            color: 'green', 
+            weight: 2,
+        }).addTo(mymap);
+    {% endfor %}
 
-    // var circle = L.circle([51.508, -0.21], {
-    //     color: 'red',
-    //     fillColor: '#f03',
-    //     fillOpacity: 0.5,
-    //     radius: 2500
-    // }).addTo(mymap);
+    {% for p_info in geo_info.excluded %}
+        L.polygon({{ p_info.data }}, {
+            color: 'red', 
+            weight: 2,
+        }).addTo(mymap);
+    {% endfor %}
 
-
-    var polygon = L.polygon([
-        [51.509, -0.1],
-        [51.503, -0.03],
-        [51.58, -0.057]
-    ], {
-        color: 'red', 
-        // stroke: false,
-        weight: 2,
-        fillColor: 'grey',
-        fillOpacity: 0.8,
-    }).addTo(mymap);
-
-    polygon.bindPopup("I am a polygon.");
-
-    var polygon_green = L.polygon([
-        [51.54, -0.38],
-        [51.48, -0.41],
-        [51.46, -0.15],
-        [51.51, -0.13]
-    ], {
-        color: 'green', 
-        // stroke: false,
-        weight: 2,
-        // fillColor: 'black',
-        // fillOpacity: 0.2,
-    }).addTo(mymap);
-
-    // var polyline = L.polyline([
-    //     [51.509, -0.08],
-    //     [51.503, -0.06],
-    //     [51.51, -0.047]
-    // ], {color: 'red'}).addTo(mymap);
+    {% for p_info in geo_info.trace %}
+        var trace{{ forloop.counter}} = L.polyline({{ p_info.data }}, {
+            color: 'orange', 
+            weight: 2,
+        }).addTo(mymap);
+        trace{{ forloop.counter}}.bindPopup('<img src="{{p_info.img}}"/>{{ p_info.name }}');
+    {% endfor %}
 
     var currentIcon = L.icon({
         iconUrl: '{% static "img/PIN.png" %}',
@@ -69,8 +53,9 @@
         // update current marker
         mymap.removeLayer(marker); 
         marker = L.marker(e.latlng, {icon: currentIcon}).addTo(mymap).setLatLng(e.latlng);
+        marker.bindPopup(e.latlng.toString());
     }
 
-    mymap.on('click', onMapClick);
+    // mymap.on('click', onMapClick);
 </script>
 {% endblock %}    
